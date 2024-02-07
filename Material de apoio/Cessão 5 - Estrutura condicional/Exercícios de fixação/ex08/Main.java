@@ -1,15 +1,39 @@
 package ex08;
 
+import java.util.Locale;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        int a, b;
+        Locale.setDefault(Locale.US);
+        Scanner sc = new Scanner(System.in);
+        double salario, imposto = 0, _8porcento = 0, _18porcento = 0, _28porcento = 0;
 
-        a = 73; // 01001001
-        b = a ^ (1 << 3); //00001000
-        System.out.printf("a: %d\tb: %d\n",a,b);
+        salario = sc.nextDouble();
 
-        b = b ^ (1 << 3); // 00001000
+        if (salario > 4500.00){
+            _28porcento = (salario - 4500.00) * 0.28;
+            _18porcento = 1500 * 0.18;
+            _8porcento = 1000 * 0.08;
+            imposto = _28porcento + _18porcento + _8porcento;
+            System.out.printf("R$ %.2f", imposto);
+        }else if(salario > 3000.00){
+            _18porcento = (salario - 3000.00) * 0.18;
+            _8porcento = 1000 * 0.08;
+            imposto = _28porcento + _18porcento + _8porcento;
+            System.out.printf("R$ %.2f", imposto);
+         }else if(salario > 2000.00){
+            _8porcento = (salario - 2000.00) * 0.08;
+            imposto = _28porcento + _18porcento + _8porcento;
+            System.out.printf("R$ %.2f", imposto);
+         }else{
+            System.out.println("Isento");
+         }
 
-        System.out.printf("a: %d\tb: %d\n", a, b);
+         
+
+        
+
+        sc.close();
     }
 }
