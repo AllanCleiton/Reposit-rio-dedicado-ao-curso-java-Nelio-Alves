@@ -14,16 +14,11 @@ public class Main{
         System.out.print("Enter account Number: ");
         int accNumber = sc.nextInt();
 
-        sc.nextLine();
         System.out.print("Enter account holder: ");
+        sc.nextLine();//consome a quebra de linha pendente
         String name = sc.nextLine();
-        
         Person holder = new Person(name);
-        
-        Account account = new Account(accNumber, holder);
-
-        
-        
+        Account account;  
 
         System.out.print("Is there an initial deposite (y/n)? ");
         double value=0;
@@ -31,12 +26,15 @@ public class Main{
             do{ 
                 System.out.print("\nEnter initial deposit value: ");
                 value = sc.nextDouble();
-                account.deposit(value);
+                account = new Account(accNumber, holder, value);
             }while (!(value > 0));
+        }else{
+            account = new Account(accNumber, holder);
         }
 
         System.out.println("Account data:");
-        account.info();
+        System.out.println(account);;
+        //account.info();
 
         System.out.println("\n");
         

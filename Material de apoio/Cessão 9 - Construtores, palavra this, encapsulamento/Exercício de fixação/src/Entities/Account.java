@@ -12,6 +12,12 @@ public class Account {
         this.client = client;
     }
 
+    public Account(int numberAccount, Person client, double value) {
+        this.numberAccount = numberAccount;
+        this.client = client;
+        deposit(value);
+    }
+
     public int getNumberAccount() {
         return numberAccount;
     }
@@ -45,6 +51,15 @@ public class Account {
 
     public void info(){
         System.out.printf("Account %d, Holder: %s, Balance: $ %.2f", getNumberAccount(), getClient().getName(), getBalance());
+    }
+
+    public String toString(){
+        return "Account "
+                + getNumberAccount()
+                + ", Holder: "
+                + getClient().getName()
+                + ", Balance: $"
+                + String.format("%.2f", getBalance());
     }
 
 }
