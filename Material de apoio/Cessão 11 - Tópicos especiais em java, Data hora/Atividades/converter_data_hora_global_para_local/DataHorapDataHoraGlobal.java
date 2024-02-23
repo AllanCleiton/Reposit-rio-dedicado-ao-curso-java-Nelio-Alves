@@ -3,7 +3,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 
-public class Main {
+public class DataHorapDataHoraGlobal {
     public static void main(String[] args) {
         
         LocalDate d04 = LocalDate.parse("1994-10-03");
