@@ -17,9 +17,9 @@ public class TextopDataHora{
         Instant d07 = Instant.parse("1994-10-03T18:10:26-03:00");
 
         //TEXTO NO FORMATO CUSTOMIZADO -> DATA-HORA
-        DateTimeFormatter fmt1 = DateTimeFormatter.ofPattern("dd/MM/yyy");
+        DateTimeFormatter fmt1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate d08 = LocalDate.parse("20/07/2022", fmt1);
-        LocalDateTime d09 = LocalDateTime.parse("20/07/2022 13:11", DateTimeFormatter.ofPattern("dd/MM/yyy HH:mm"));
+        LocalDateTime d09 = LocalDateTime.parse("20/07/2022 13:11", DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
 
         //DIA , MÊS, ANO, [HORÁRIO] -> DATA-HORA LOCAL 
         LocalDate d10 = LocalDate.of(2024, 02, 18);
