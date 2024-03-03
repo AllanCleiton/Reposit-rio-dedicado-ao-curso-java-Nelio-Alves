@@ -8,6 +8,7 @@ import java.util.Scanner;
 import Entities.ImportedProduct;
 import Entities.Product;
 import Entities.UsedProduct;
+import Services.ValidaData;
 
 public class Main {
     public static void main(String[] args) {
@@ -50,7 +51,11 @@ public class Main {
                         System.out.print("Manufacture date: (DD/MM/YYYY): ");
                         
                         String date = sc.next();
-                        
+            
+                        while(ValidaData.validar(date) == false){
+                            System.out.print("Manufacture date: (DD/MM/YYYY): ");
+                            date = sc.next();
+                        }
                         products.add(new UsedProduct(name, price, date));
                         break;
                     case 'i':
