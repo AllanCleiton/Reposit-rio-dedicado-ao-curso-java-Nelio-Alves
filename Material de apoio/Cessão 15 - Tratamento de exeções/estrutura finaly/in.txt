@@ -1,0 +1,8 @@
+O que é Hibernate? Usado na linguagem Java, mas também na plataforma .NET, ele é um framework ORM, 
+ou seja, para o mapeamento objeto-relacional. De código aberto, ele é distribuído com a licença LGPL
+ e praticado por grande parte dos desenvolvedores Back-end. 
+
+A manipulação de banco de dados, que antes era manual, ganhou mais agilidade com os frameworks ORM, como o Hibernate. 
+
+Enfim, como o termo está presente em muitas vagas de emprego, apresentamos ele aqui no Dicionário
+ Tech. Acompanhe o texto para saber um pouco sobre a história e a aplicação desse framework. 
