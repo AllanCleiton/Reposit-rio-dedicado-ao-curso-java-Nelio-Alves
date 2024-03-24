@@ -1,0 +1,73 @@
+create database dbinfox;
+
+use dbinfox;
+
+create table tbusuarios(
+iduser int primary key,
+usuario varchar(45) not null,
+fone varchar(15),
+login varchar(15) not null unique,
+senha varchar(15) not null);
+
+describe tbusuarios;
+
+-- crud criar...
+insert into tbusuarios(iduser, usuario, fone, login, senha)
+values( 2, 'Administrador', '37984225338', 'admin', 'admin');
+ 
+select * from tbusuarios;
+
+-- Crud editar...
+update tbusuarios set fone= '8888-8888' where iduser= 2;
+
+-- Crud deletar..
+delete from tbusuarios where iduser = '';
+
+create table tbclientes(
+idcli int primary key auto_increment,
+nomecli varchar(50) not null,
+endcli varchar(100),
+fone varchar(50) not null,
+emailcli varchar(50)
+);
+
+-- a linha abaixo altera o nome de uma colula na tabela.
+ALTER TABLE tbclientes
+CHANGE fone fonecli varchar(50) not null;
+
+insert into tbclientes(nomecli, endcli, fonecli, emailcli)
+values('Linus Turvalds', 'Rua Tux', '9999-9999', 'linus@linux.com');
+
+select * from tbclientes;
+
+-- relacionando tabelas...
+ 
+create table tbos(
+os int primary key auto_increment,
+data_os timestamp default current_timestamp,
+equipamento varchar(150) not null, 
+defeiton varchar(150) not null,
+servico varchar(150),
+tecnico varchar(30),
+valor decimal(10,2),
+idcli int not null,
+foreign key(idcli) references tbclientes(idcli) 
+);
+
+ALTER TABLE tbos
+CHANGE defeiton defeito varchar(150) not null;
+
+insert into tbos(equipamento, defeito, servico, tecnico, valor,idcli)
+values('notebook','não liga','troca fonte','joão', 84.20, 1);
+
+select * from tbusuarios;
+
+-- o codigo abaixo faz a União de duas tabelas...
+select 
+-- selecione da tabela O(representa a tabela tbos)...
+O.os,equipamento,defeito,servico,valor,
+-- selecione da tabela C(representa a tabela tbclientes)...
+C.nomecli,fonecli
+from tbos as O
+inner join tbclientes as C
+on(O.idcli = C.idcli);
